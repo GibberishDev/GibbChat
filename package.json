@@ -1,0 +1,23 @@
+{
+  "name": "gibbchat",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/GibberishDev/GibbChat#readme",
+  "bugs": {
+    "url": "https://github.com/GibberishDev/GibbChat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GibberishDev/GibbChat.git"
+  },
+  "license": "LGPL-3.0-or-later",
+  "author": "GibbDev",
+  "type": "commonjs",
+  "main": "app/index.js",
+  "scripts": {
+    "run": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^42.4.0"
+  }
+}

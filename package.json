@@ -15,9 +15,33 @@
   "type": "commonjs",
   "main": "app/index.js",
   "scripts": {
-    "run": "electron ."
+    "start": "electron .",
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^42.4.0"
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+  },
+  "build": {
+    "appId": "gibbdev.gibbchat",
+    "linux":{
+      "target":["AppImage","deb"],
+      "category":"AudioVideo",
+      "synopsis":"Streaming utility",
+      "vendor":"GibberishDev",
+      "maintainer":"GibbDev GibberishDevelopment@gmail.com",
+      "desktop":{
+        "entry":{
+          "Name":"GibbChat",
+          "Comment":"Streaming utility",
+          "Categories":"AudioVideo",
+          "Type":"Application",
+          "StartupWMClass": "gibbchat"
+        }
+      }
+    }
   }
 }

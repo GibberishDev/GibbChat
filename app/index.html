@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Gibberish Chat</title>
+	<title>GibbChat</title>
 	<link rel="icon" href="icon.png">
+	<link rel="stylesheet" href="./index.css">
 </head>
 <body>
-	
+	<script defer>
+		window.tmi.twitchChatMessage((event,data)=>{console.log(event,data)})
+	</script>
 </body>
 </html>

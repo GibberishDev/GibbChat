@@ -1,5 +1,6 @@
 {
   "name": "gibbchat",
+  "desktopName": "com.gibbdev.gibbchat.desktop",
   "version": "1.0.0",
   "description": "",
   "homepage": "https://github.com/GibberishDev/GibbChat#readme",
@@ -24,21 +25,28 @@
     "electron-builder": "^26.15.3"
   },
   "dependencies": {
+    "tmi.js": "^1.8.5",
+    "youtubei.js": "^17.0.1"
   },
   "build": {
     "appId": "gibbdev.gibbchat",
-    "linux":{
-      "target":["AppImage","deb"],
-      "category":"AudioVideo",
-      "synopsis":"Streaming utility",
-      "vendor":"GibberishDev",
-      "maintainer":"GibbDev GibberishDevelopment@gmail.com",
-      "desktop":{
-        "entry":{
-          "Name":"GibbChat",
-          "Comment":"Streaming utility",
-          "Categories":"AudioVideo",
-          "Type":"Application",
+    "copyright": "Copyright © ${year} ${author}",
+    "productName": "GibbChat",
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "AudioVideo",
+      "synopsis": "Streaming utility",
+      "vendor": "GibberishDev",
+      "maintainer": "GibbDev GibberishDevelopment@gmail.com",
+      "syncDesktopName": true,
+      "desktop": {
+        "entry": {
+          "Name": "GibbChat",
+          "Comment": "Streaming utility",
+          "Categories": "AudioVideo",
+          "Type": "Application",
           "StartupWMClass": "gibbchat"
         }
       }

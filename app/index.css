@@ -1,0 +1,8 @@
+:root {
+	--color-background-base: #1d2021;
+}
+
+body {
+	margin: 0;
+	background: var(--color-background-base);
+}

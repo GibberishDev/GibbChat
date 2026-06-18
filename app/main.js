@@ -1,6 +1,7 @@
 const { app, BrowserWindow, webContents, Menu, ipcMain } = require('electron')
 const path = require("path")
 const tmi = require('tmi.js')
+const emotes = require("./scripts/emotes")
 
 var win
 
@@ -24,6 +25,8 @@ function createWindow() {
 
 app.whenReady().then(() => {
   win = createWindow()
+  emotes.fetchEmotes(["gibbdev"])
+  setTimeout(()=>{console.log(emotes.getEmoteImageUrl("GibbExplode"))},10000)
 })
 
 app.on('window-all-closed', () => {

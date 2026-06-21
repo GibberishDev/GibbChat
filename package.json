@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "tmi.js": "^1.8.5",
-    "youtubei.js": "^17.0.1"
+    "youtube-chat": "^2.2.0"
   },
   "build": {
     "appId": "gibbdev.gibbchat",

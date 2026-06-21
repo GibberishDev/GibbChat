@@ -1,6 +1,7 @@
 const { app, BrowserWindow, webContents, Menu, ipcMain } = require('electron')
 const path = require("path")
 const tmi = require('tmi.js')
+const { LiveChat } = require("youtube-chat")
 const emotes = require("./scripts/emotes")
 
 var win
@@ -25,8 +26,6 @@ function createWindow() {
 
 app.whenReady().then(() => {
   win = createWindow()
-  emotes.fetchEmotes(["gibbdev"])
-  setTimeout(()=>{console.log(emotes.getEmoteImageUrl("GibbExplode"))},10000)
 })
 
 app.on('window-all-closed', () => {
@@ -44,7 +43,24 @@ function connectTwitchChat(channels) {
   })
 } 
 
+var ytClient
+
+async function connectYoutubeChat(channelID) {
+  if (ytClient) {ytClient.stop()}
+  ytClient = new LiveChat({channelId:channelID})
+  ytClient.on("chat",(message)=>{console.log(message)})
+  let status = await ytClient.start()
+  if (!status) {
+    console.log("Failed to connect to youtube channel")
+    ytClient.stop()
+  }
+}
+
 ipcMain.on('connectTwitchChat',(_ev,data) => {
   let channels = data[0]
   connectTwitchChat(channels)
+})
+ipcMain.on('connectYoutubeChat',(_ev,data) => {
+  let channels = data[0]
+  connectYoutubeChat(channels.account)
 })

@@ -3,6 +3,7 @@ const path = require("path")
 const tmi = require('tmi.js')
 const { LiveChat } = require("youtube-chat")
 const emotes = require("./scripts/emotes")
+const {fork} = require('child_process')
 
 var win
 
@@ -47,8 +48,9 @@ var ytClient
 
 async function connectYoutubeChat(channelID) {
   if (ytClient) {ytClient.stop()}
+  console.log(channelID)
   ytClient = new LiveChat({channelId:channelID})
-  ytClient.on("chat",(message)=>{console.log(message)})
+  ytClient.on("chat",(message)=>{win.webContents.send("youtubeChatMessage",message)})
   let status = await ytClient.start()
   if (!status) {
     console.log("Failed to connect to youtube channel")
@@ -61,6 +63,6 @@ ipcMain.on('connectTwitchChat',(_ev,data) => {
   connectTwitchChat(channels)
 })
 ipcMain.on('connectYoutubeChat',(_ev,data) => {
-  let channels = data[0]
-  connectYoutubeChat(channels.account)
+  let channelID = data[0]
+  connectYoutubeChat(channelID)
 })

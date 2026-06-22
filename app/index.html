@@ -9,7 +9,8 @@
 </head>
 <body>
 	<script defer>
-		window.tmi.twitchChatMessage((event,data)=>{console.log(event,data)})
+		window.tmi.twitchChatMessage((event,data)=>{console.log(data.userstate.username,": ",data.message)})
+		window.tmi.youtubeChatMessage((event,data)=>{console.log(data.author.name.replace("@",""),data.message)})
 	</script>
 </body>
 </html>

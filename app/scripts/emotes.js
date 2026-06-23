@@ -1,19 +1,19 @@
-module.exports.getOtherChannelTwitchEmotes = getOtherChannelTwitchEmotes
-module.exports.fetchEmotes = fetchEmotes
-module.exports.getEmoteImageUrl = getEmoteImageUrl
-
 let bttvEmoteCodeToId = {}
 let ffzEmoteCodeToId = {}
 let seventvEmoteCodeToId = {}
 let twitchGlobalEmoteCodeToId = {}
 let twitchChannelEmoteCodeToId = {}
 
+if (typeof(module) == Object) {
+module.exports.getOtherChannelTwitchEmotes = getOtherChannelTwitchEmotes
+module.exports.fetchEmotes = fetchEmotes
+module.exports.getEmoteImageUrl = getEmoteImageUrl
 module.exports.bttvEmoteCodeToId = bttvEmoteCodeToId
 module.exports.ffzEmoteCodeToId = ffzEmoteCodeToId
 module.exports.seventvEmoteCodeToId = seventvEmoteCodeToId
 module.exports.twitchGlobalEmoteCodeToId = twitchGlobalEmoteCodeToId
 module.exports.twitchChannelEmoteCodeToId = twitchChannelEmoteCodeToId
-
+}
 
 // Uses teklynk's https://github.com/teklynk/twitch_api_public
 async function fetchEmotes(channels,ffz=true,bttv=true,seventv=true) {
